@@ -23,7 +23,7 @@ class AnimatedSvg extends StatefulWidget {
     this.duration = const Duration(milliseconds: 500),
     this.clockwise = true,
     this.isActive = true,
-  })  : assert(children.length != 2, kRequiredChildrenAssertMessage),
+  })  : assert(children.length == 2, kRequiredChildrenAssertMessage),
         super(key: key);
 
   final AnimatedSvgController controller;
