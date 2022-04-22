@@ -40,83 +40,57 @@ class AnimatedSvg extends StatefulWidget {
 
 class _AnimatedSvgState extends State<AnimatedSvg>
     with SingleTickerProviderStateMixin {
-  // Creating an animation controller
-  late final AnimationController _controller;
-
   @override
   void initState() {
     // Initializing the controller
-    _controller = AnimationController(
-      vsync: this,
-      duration: widget.duration,
+    widget.controller.setController(
+      AnimationController(
+        vsync: this,
+        duration: widget.duration,
+      ),
     );
 
     // Adding listener
-    _controller.addListener(() {
+    widget.controller.getController!.addListener(() {
       if (mounted) {
         setState(() {});
       }
     });
-
-    // Initializing the methods of AnimatedSvgController
-    _initController();
 
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    widget.controller.getController!.removeListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+    widget.controller.dispose();
     super.dispose();
-  }
-
-  // Initializing the methods of AnimatedSvgController
-  void _initController() {
-    widget.controller.forward = () {
-      if (mounted) {
-        _controller.forward();
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    widget.controller.reverse = () {
-      if (mounted) {
-        _controller.reverse();
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    widget.controller.isAnimating =
-        () => _controller.value > 0.0 || _controller.value < 1.0;
-
-    widget.controller.isDismissed = () => _controller.value == 0.0;
-
-    widget.controller.isCompleted = () => _controller.value == 1.0;
   }
 
   void _onTap() {
     if (widget.isActive && mounted) {
       // If animation is still running, return!
-      if (_controller.isAnimating) return;
+      if (widget.controller.isAnimating) return;
 
       widget.onTap();
 
-      if (_controller.isCompleted) {
-        _controller.reverse();
+      if (widget.controller.isCompleted) {
+        widget.controller.reverse();
       } else {
-        _controller.forward();
+        widget.controller.forward();
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final double controllerValueX = _controller.value;
-    final double controllerValueY = 1.0 - _controller.value;
+    final double controllerValueX = widget.controller.getController!.value;
+    final double controllerValueY =
+        1.0 - widget.controller.getController!.value;
     final double angleX = math.pi / 180.0 * (180.0 * controllerValueX);
     final double angleY = math.pi / 180.0 * (180.0 * controllerValueY);
 
