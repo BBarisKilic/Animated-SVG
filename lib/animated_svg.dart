@@ -94,18 +94,27 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     final double angleX = math.pi / 180.0 * (180.0 * controllerValueX);
     final double angleY = math.pi / 180.0 * (180.0 * controllerValueY);
 
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        if (controllerValueX == 1.0 && controllerValueY == 0.0)
-          _buildSecondSvg(angle: angleY, opacity: controllerValueX)
-        else
-          _buildFirstSvg(angle: angleX, opacity: controllerValueY),
-        if (controllerValueX == 0.0 && controllerValueY == 1.0)
-          _buildFirstSvg(angle: angleX, opacity: controllerValueY)
-        else
-          _buildSecondSvg(angle: angleY, opacity: controllerValueX),
-      ],
+    return GestureDetector(
+      onTap: _onTap,
+      child: SizedBox(
+        height: widget.size,
+        width: widget.size,
+        child: FittedBox(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              if (controllerValueX == 1.0 && controllerValueY == 0.0)
+                _buildSecondSvg(angle: angleY, opacity: controllerValueX)
+              else
+                _buildFirstSvg(angle: angleX, opacity: controllerValueY),
+              if (controllerValueX == 0.0 && controllerValueY == 1.0)
+                _buildFirstSvg(angle: angleX, opacity: controllerValueY)
+              else
+                _buildSecondSvg(angle: angleY, opacity: controllerValueX),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -114,16 +123,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
       angle: widget.clockwise ? angle : -angle,
       child: Opacity(
         opacity: opacity,
-        child: GestureDetector(
-          onTap: _onTap,
-          child: SizedBox(
-            height: widget.size,
-            width: widget.size,
-            child: FittedBox(
-              child: widget.children[0],
-            ),
-          ),
-        ),
+        child: widget.children[0],
       ),
     );
   }
@@ -133,16 +133,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
       angle: widget.clockwise ? -angle : angle,
       child: Opacity(
         opacity: opacity,
-        child: GestureDetector(
-          onTap: _onTap,
-          child: SizedBox(
-            height: widget.size,
-            width: widget.size,
-            child: FittedBox(
-              child: widget.children[1],
-            ),
-          ),
-        ),
+        child: widget.children[1],
       ),
     );
   }
