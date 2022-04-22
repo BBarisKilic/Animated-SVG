@@ -43,7 +43,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
   @override
   void initState() {
     // Initializing the controller
-    widget.controller.setController(
+    widget.controller.init(
       AnimationController(
         vsync: this,
         duration: widget.duration,
@@ -51,7 +51,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     );
 
     // Adding listener
-    widget.controller.getController!.addListener(() {
+    widget.controller.addListener(() {
       if (mounted) {
         setState(() {});
       }
@@ -62,7 +62,8 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 
   @override
   void dispose() {
-    widget.controller.getController!.removeListener(() {
+    // Removing listener
+    widget.controller.removeListener(() {
       if (mounted) {
         setState(() {});
       }
@@ -88,9 +89,8 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 
   @override
   Widget build(BuildContext context) {
-    final double controllerValueX = widget.controller.getController!.value;
-    final double controllerValueY =
-        1.0 - widget.controller.getController!.value;
+    final double controllerValueX = widget.controller.value;
+    final double controllerValueY = 1.0 - widget.controller.value;
     final double angleX = math.pi / 180.0 * (180.0 * controllerValueX);
     final double angleY = math.pi / 180.0 * (180.0 * controllerValueY);
 

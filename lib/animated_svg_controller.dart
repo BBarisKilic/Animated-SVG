@@ -8,10 +8,10 @@ class AnimatedSvgController {
   // Creating an animation controller
   AnimationController? _controller;
 
-  AnimationController? get getController => _controller;
+  double get value => _controller != null ? _controller!.value : 0.0;
 
   bool get isAnimating => _controller != null
-      ? _controller!.value > 0.0 || _controller!.value < 1.0
+      ? _controller!.value > 0.0 && _controller!.value < 1.0
       : false;
 
   bool get isDismissed =>
@@ -20,7 +20,7 @@ class AnimatedSvgController {
   bool get isCompleted =>
       _controller != null ? _controller!.value == 1.0 : false;
 
-  void setController(AnimationController controller) {
+  void init(AnimationController controller) {
     if (_controller != null) return;
 
     _controller = controller;
@@ -42,6 +42,18 @@ class AnimatedSvgController {
     } else {
       return false;
     }
+  }
+
+  void addListener(VoidCallback listener) {
+    if (_controller != null) return;
+
+    _controller!.addListener(listener);
+  }
+
+  void removeListener(VoidCallback listener) {
+    if (_controller != null) return;
+
+    _controller!.removeListener(listener);
   }
 
   void dispose() {
