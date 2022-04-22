@@ -45,13 +45,13 @@ class AnimatedSvgController {
   }
 
   void addListener(VoidCallback listener) {
-    if (_controller != null) return;
+    if (_controller == null) return;
 
     _controller!.addListener(listener);
   }
 
   void removeListener(VoidCallback listener) {
-    if (_controller != null) return;
+    if (_controller == null) return;
 
     _controller!.removeListener(listener);
   }
