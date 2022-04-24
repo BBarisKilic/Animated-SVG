@@ -17,8 +17,8 @@ class AnimatedSvg extends StatefulWidget {
   const AnimatedSvg({
     Key? key,
     required this.controller,
-    required this.onTap,
     required this.children,
+    this.onTap,
     this.size = 24.0,
     this.duration = const Duration(milliseconds: 500),
     this.clockwise = true,
@@ -27,8 +27,8 @@ class AnimatedSvg extends StatefulWidget {
         super(key: key);
 
   final AnimatedSvgController controller;
-  final VoidCallback onTap;
   final List<SvgPicture> children;
+  final void Function()? onTap;
   final double size;
   final Duration duration;
   final bool clockwise;
@@ -77,7 +77,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
       // If animation is still running, return!
       if (widget.controller.isAnimating) return;
 
-      widget.onTap();
+      if (widget.onTap != null) widget.onTap!();
 
       if (widget.controller.isCompleted) {
         widget.controller.reverse();
