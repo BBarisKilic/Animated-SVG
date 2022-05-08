@@ -72,13 +72,9 @@ Widget build(BuildContext context) {
         children: [
             SvgPicture.asset(
                 'assets/play.svg',
-                height: 40,
-                width: 40,
             ),
             SvgPicture.asset(
                 'assets/pause.svg',
-                height: 40,
-                width: 40,
             ),
         ],
     );
