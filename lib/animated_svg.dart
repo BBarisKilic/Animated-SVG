@@ -12,8 +12,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'animated_svg_controller.dart';
 import 'constants/constants.dart';
 
+/// Flutter package for displaying and animating
+/// Scalable Vector Graphics 1.1 files.
+///
+/// The package has been written solely in Dart Language.
 class AnimatedSvg extends StatefulWidget {
-  /// Constructor
+  /// Constructor of AnimatedSvg
   const AnimatedSvg({
     Key? key,
     required this.controller,
@@ -26,12 +30,37 @@ class AnimatedSvg extends StatefulWidget {
   })  : assert(children.length == 2, kRequiredChildrenAssertMessage),
         super(key: key);
 
+  /// A controller class that provides full control over the SVGs.
   final AnimatedSvgController controller;
+
+  /// A list of SVGs required to draw and animate.
+  ///
+  /// Only two SVGs are required therefore more or less than
+  /// the required number of SVGs will throw an error.
   final List<SvgPicture> children;
+
+  /// A Function that provides you the ability to control tap action.
+  /// With this function, you can easily assign tasks to the widget.
   final void Function()? onTap;
+
+  /// A variable to determine the size of the AnimatedSvg.
+  ///
+  /// Default value is 24.0.
   final double size;
+
+  /// A variable to determine the duration of the animation.
+  ///
+  /// Default value is Duration(milliseconds: 500).
   final Duration duration;
+
+  /// A variable to determine the direction of the animation.
+  ///
+  /// Default value is true.
   final bool clockwise;
+
+  /// A variable to set the state state of the widget.
+  ///
+  /// Default value is true.
   final bool isActive;
 
   @override
@@ -72,6 +101,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     super.dispose();
   }
 
+  // Setting on tap tasks.
   void _onTap() {
     if (widget.isActive && mounted) {
       // If animation is still running, return!
@@ -112,6 +142,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     );
   }
 
+  // Building first SVG widget.
   Widget _buildFirstSvg({required double angle, required double opacity}) {
     return Transform.rotate(
       angle: widget.clockwise ? angle : -angle,
@@ -128,6 +159,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     );
   }
 
+  // Building second SVG widget.
   Widget _buildSecondSvg({required double angle, required double opacity}) {
     return Transform.rotate(
       angle: widget.clockwise ? -angle : angle,

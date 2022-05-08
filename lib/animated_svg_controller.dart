@@ -4,8 +4,9 @@
 
 import 'package:flutter/material.dart';
 
+/// A controller class that provides full control over the SVGs.
 class AnimatedSvgController {
-  // Creating an animation controller
+  // An animation controller
   AnimationController? _controller;
 
   double get value => _controller != null ? _controller!.value : 0.0;
