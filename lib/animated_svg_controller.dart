@@ -5,15 +5,36 @@
 import 'package:flutter/material.dart';
 
 abstract class SvgController {
+  /// A getter that provides the current value of the controller.
   double get value;
+
+  /// A getter that returns true if the animation is running.
   bool get isAnimating;
+
+  /// A getter that returns true if the animation is dismissed.
   bool get isDismissed;
+
+  /// A getter that returns true if the animation is completed.
   bool get isCompleted;
+
+  /// A function to initialize SvgController.
+  ///
+  /// This needs to be called before everything else.
   void init(AnimationController controller);
+
+  /// A function to run animation in the forward direction.
   bool forward();
+
+  /// A function to run animation in the reverse direction.
   bool reverse();
+
+  /// A function to add a listener to the controller.
   void addListener(void Function() listener);
+
+  /// A function to remove a listener from the controller.
   void removeListener(void Function() listener);
+
+  /// A function to dispose SvgController.
   void dispose();
 }
 
@@ -42,6 +63,9 @@ class AnimatedSvgController implements SvgController {
   bool get isCompleted =>
       _controller != null ? _controller!.value == 1.0 : false;
 
+  /// A function to initialize AnimatedSvgController.
+  ///
+  /// This needs to be called before everything else.
   @override
   void init(AnimationController controller) {
     if (_controller != null) return;
@@ -49,6 +73,7 @@ class AnimatedSvgController implements SvgController {
     _controller = controller;
   }
 
+  /// A function to run animation in the forward direction.
   @override
   bool forward() {
     if (_controller != null) {
@@ -59,6 +84,7 @@ class AnimatedSvgController implements SvgController {
     }
   }
 
+  /// A function to run animation in the reverse direction.
   @override
   bool reverse() {
     if (_controller != null) {
@@ -69,6 +95,7 @@ class AnimatedSvgController implements SvgController {
     }
   }
 
+  /// A function to add a listener to the controller.
   @override
   void addListener(void Function() listener) {
     if (_controller == null) return;
@@ -76,6 +103,7 @@ class AnimatedSvgController implements SvgController {
     _controller!.addListener(listener);
   }
 
+  /// A function to remove a listener from the controller.
   @override
   void removeListener(void Function() listener) {
     if (_controller == null) return;
@@ -83,6 +111,7 @@ class AnimatedSvgController implements SvgController {
     _controller!.removeListener(listener);
   }
 
+  /// A function to dispose AnimatedSvgController.
   @override
   void dispose() {
     if (_controller != null) {
