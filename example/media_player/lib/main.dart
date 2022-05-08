@@ -1,4 +1,7 @@
+import 'package:animated_svg/animated_svg.dart';
+import 'package:animated_svg/animated_svg_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,57 +13,145 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Media Player',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MediaPlayer(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class MediaPlayer extends StatefulWidget {
+  const MediaPlayer({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MediaPlayer> createState() => _MediaPlayerState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MediaPlayerState extends State<MediaPlayer> {
+  late final SvgController _controller;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState() {
+    _controller = AnimatedSvgController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Media Player'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SvgPicture.asset(
+            'assets/music.svg',
+            height: 240,
+            width: 240,
+          ),
+          const SizedBox(
+            height: 80,
+          ),
+          Column(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    height: 10,
+                    margin: const EdgeInsets.only(left: 40, right: 40),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white54,
+                    ),
+                  ),
+                  Container(
+                    height: 10,
+                    margin: const EdgeInsets.only(left: 40, right: 160),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      '02:37',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '03:46',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 80,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'assets/backward_5.svg',
+                height: 40,
+                width: 40,
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              AnimatedSvg(
+                controller: _controller,
+                size: 80,
+                children: [
+                  SvgPicture.asset(
+                    'assets/play.svg',
+                    height: 40,
+                    width: 40,
+                  ),
+                  SvgPicture.asset(
+                    'assets/pause.svg',
+                    height: 40,
+                    width: 40,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              SvgPicture.asset(
+                'assets/forward_5.svg',
+                height: 40,
+                width: 40,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
