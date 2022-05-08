@@ -137,16 +137,8 @@ class _MediaPlayerState extends State<MediaPlayer> {
                 controller: _controller,
                 size: 80,
                 children: [
-                  SvgPicture.asset(
-                    'assets/play.svg',
-                    height: 40,
-                    width: 40,
-                  ),
-                  SvgPicture.asset(
-                    'assets/pause.svg',
-                    height: 40,
-                    width: 40,
-                  ),
+                  SvgPicture.asset('assets/play.svg'),
+                  SvgPicture.asset('assets/pause.svg'),
                 ],
               ),
               const SizedBox(
