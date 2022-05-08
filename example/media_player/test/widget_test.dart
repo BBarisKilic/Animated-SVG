@@ -1,3 +1,7 @@
+// Copyright 2022 The AnimatedSvg Author. All rights reserved.
+// Use of this source code is governed by a MIT-style license that
+// can be found in the LICENSE file.
+
 // This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester
@@ -13,7 +17,7 @@ import 'package:media_player/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const ExampleApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

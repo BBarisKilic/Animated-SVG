@@ -1,14 +1,18 @@
+// Copyright 2022 The AnimatedSvg Author. All rights reserved.
+// Use of this source code is governed by a MIT-style license that
+// can be found in the LICENSE file.
+
 import 'package:animated_svg/animated_svg.dart';
 import 'package:animated_svg/animated_svg_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ExampleApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class ExampleApp extends StatelessWidget {
+  const ExampleApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +35,19 @@ class MediaPlayer extends StatefulWidget {
 }
 
 class _MediaPlayerState extends State<MediaPlayer> {
+  // Define an SvgController
   late final SvgController _controller;
 
   @override
   void initState() {
+    // Initialize SvgController
     _controller = AnimatedSvgController();
     super.initState();
   }
 
   @override
   void dispose() {
+    // Dispose SvgController
     _controller.dispose();
     super.dispose();
   }
@@ -125,6 +132,7 @@ class _MediaPlayerState extends State<MediaPlayer> {
               const SizedBox(
                 width: 20,
               ),
+              // Call the AnimatedSvg widget anywhere in your widget tree.
               AnimatedSvg(
                 controller: _controller,
                 size: 80,
