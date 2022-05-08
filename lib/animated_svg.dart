@@ -31,7 +31,7 @@ class AnimatedSvg extends StatefulWidget {
         super(key: key);
 
   /// A controller class that provides full control over the SVGs.
-  final AnimatedSvgController controller;
+  final SvgController controller;
 
   /// A list of SVGs required to draw and animate.
   ///
