@@ -6,22 +6,26 @@
 
 `main.dart`
 ```dart
+// Define an SvgController
 late final SvgController _controller;
 
 @override
 void initState() {
+    // Initialize SvgController
     _controller = AnimatedSvgController();
     super.initState();
 }
 
 @override
 void dispose() {
+    // Dispose SvgController
     _controller.dispose();
     super.dispose();
 }
 
 @override
 Widget build(BuildContext context) {
+    // Call the AnimatedSvg widget anywhere in your widget tree.
     return AnimatedSvg(
         controller: _controller,
         duration: const Duration(milliseconds: 600),
