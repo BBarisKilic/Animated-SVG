@@ -2,9 +2,8 @@
 // Use of this source code is governed by a MIT-style license that
 // can be found in the LICENSE file.
 
-///
-/// Strings
-///
+// Strings
 
+/// Assertion message to show required children count.
 const kRequiredChildrenAssertMessage =
     'AnimatedSvg: It is required to provide only 2 SvgPicture as children!';

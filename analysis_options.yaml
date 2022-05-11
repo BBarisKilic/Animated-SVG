@@ -2,6 +2,8 @@ include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
+
+    # General linter rules.
     prefer_single_quotes: true
     avoid_print: true
     avoid_unnecessary_containers: true
@@ -38,7 +40,7 @@ linter:
     avoid_returning_null: true
     avoid_return_types_on_setters: true
 
-    # Specific for library packages
+    # Linter rules which more appropriate for library packages.
     public_member_api_docs: true
     package_api_docs: true
     slash_for_doc_comments: true
