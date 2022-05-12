@@ -19,7 +19,7 @@ import 'constants/constants.dart';
 ///
 /// The package has been written solely in Dart Language.
 class AnimatedSvg extends StatefulWidget {
-  /// Constructor of [AnimatedSvg]
+  /// Create [AnimatedSvg] widget.
   const AnimatedSvg({
     Key? key,
     required this.controller,
