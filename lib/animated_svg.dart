@@ -105,7 +105,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
   }
 
   // Setting on tap tasks.
-  void _onTap() {
+  void onTap() {
     if (widget.isActive && mounted) {
       // If animation is still running, return!
       if (widget.controller.isAnimating) return;
@@ -128,25 +128,25 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     final double angleY = math.pi / 180.0 * (180.0 * controllerValueY);
 
     return GestureDetector(
-      onTap: _onTap,
+      onTap: onTap,
       child: Stack(
         alignment: Alignment.center,
         children: [
           if (controllerValueX == 1.0 && controllerValueY == 0.0)
-            _buildSecondSvg(angle: angleY, opacity: controllerValueX)
+            buildSecondSvg(angle: angleY, opacity: controllerValueX)
           else
-            _buildFirstSvg(angle: angleX, opacity: controllerValueY),
+            buildFirstSvg(angle: angleX, opacity: controllerValueY),
           if (controllerValueX == 0.0 && controllerValueY == 1.0)
-            _buildFirstSvg(angle: angleX, opacity: controllerValueY)
+            buildFirstSvg(angle: angleX, opacity: controllerValueY)
           else
-            _buildSecondSvg(angle: angleY, opacity: controllerValueX),
+            buildSecondSvg(angle: angleY, opacity: controllerValueX),
         ],
       ),
     );
   }
 
   // Building first SVG widget.
-  Widget _buildFirstSvg({required double angle, required double opacity}) =>
+  Widget buildFirstSvg({required double angle, required double opacity}) =>
       Transform.rotate(
         angle: widget.clockwise ? angle : -angle,
         child: Opacity(
@@ -162,7 +162,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
       );
 
   // Building second SVG widget.
-  Widget _buildSecondSvg({required double angle, required double opacity}) =>
+  Widget buildSecondSvg({required double angle, required double opacity}) =>
       Transform.rotate(
         angle: widget.clockwise ? -angle : angle,
         child: Opacity(
