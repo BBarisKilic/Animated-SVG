@@ -36,13 +36,27 @@ linter:
     unnecessary_parenthesis: true
     unnecessary_lambdas: true
     unnecessary_getters_setters: true
+    unnecessary_string_interpolations: true
     avoid_setters_without_getters: true
     avoid_returning_null: true
     avoid_return_types_on_setters: true
-
-    # Linter rules which more appropriate for library packages.
-    public_member_api_docs: true
+    avoid_single_cascade_in_expression_statements: true
+    avoid_types_on_closure_parameters: true
+    avoid_void_async: true
+    cancel_subscriptions: true
+    close_sinks: true
     package_api_docs: true
+    package_prefixed_library_names: true
+    prefer_relative_imports: true
+    test_types_in_equals: true
+    throw_in_finally: true
+    unnecessary_statements: true
+    await_only_futures: true
+    cascade_invocations: true
+    no_runtimeType_toString: true
+
+    # Package related linter rules.
+    public_member_api_docs: true
     slash_for_doc_comments: true
     comment_references: true
 
