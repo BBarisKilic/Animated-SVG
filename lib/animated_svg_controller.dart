@@ -25,10 +25,10 @@ abstract class SvgController {
   /// This needs to be called before everything else.
   void init(AnimationController controller);
 
-  /// A method to run animation in the forward direction.
+  /// A method to run animation in the [forward] direction.
   bool forward();
 
-  /// A method to run animation in the reverse direction.
+  /// A method to run animation in the [reverse] direction.
   bool reverse();
 
   /// A method to add a [listener] to the controller.
@@ -39,7 +39,7 @@ abstract class SvgController {
 
   /// A method to [dispose] SvgController.
   ///
-  /// Do not forget to call this method when youare done with this controller!
+  /// Do not forget to call this method when you are done with this controller!
   /// A suggested place to call this method would be the "dispose" method of
   /// the StatefulWidget.
   void dispose();
@@ -82,7 +82,7 @@ class AnimatedSvgController implements SvgController {
     _controller = controller;
   }
 
-  /// A method to run animation in the forward direction.
+  /// A method to run animation in the [forward] direction.
   @override
   bool forward() {
     if (_controller != null) {
@@ -93,7 +93,7 @@ class AnimatedSvgController implements SvgController {
     }
   }
 
-  /// A method to run animation in the reverse direction.
+  /// A method to run animation in the [reverse] direction.
   @override
   bool reverse() {
     if (_controller != null) {
