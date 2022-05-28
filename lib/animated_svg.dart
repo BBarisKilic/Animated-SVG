@@ -74,49 +74,42 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     with SingleTickerProviderStateMixin {
   @override
   void initState() {
-    // Initializing the controller
-    widget.controller.init(
-      AnimationController(
-        vsync: this,
-        duration: widget.duration,
-      ),
-    );
-
-    // Adding listener
-    widget.controller.addListener(() {
-      if (mounted) {
-        setState(() {});
-      }
-    });
-
     super.initState();
+
+    // Initializing the controller and adding listener.
+    widget.controller
+      ..init(AnimationController(vsync: this, duration: widget.duration))
+      ..addListener(listener);
+  }
+
+  void listener() {
+    if (!mounted) return;
+
+    setState(() {});
   }
 
   @override
   void dispose() {
-    // Removing listener
-    widget.controller.removeListener(() {
-      if (mounted) {
-        setState(() {});
-      }
-    });
-    widget.controller.dispose();
+    // Removing listener and dispose
+    widget.controller
+      ..removeListener(listener)
+      ..dispose();
+
     super.dispose();
   }
 
   // Setting on tap tasks.
   void onTap() {
-    if (widget.isActive && mounted) {
-      // If animation is still running, return!
-      if (widget.controller.isAnimating) return;
+    if (!mounted) return;
+    if (!widget.isActive) return;
+    if (widget.controller.isAnimating) return;
 
-      if (widget.onTap != null) widget.onTap!();
+    if (widget.onTap != null) widget.onTap!();
 
-      if (widget.controller.isCompleted) {
-        widget.controller.reverse();
-      } else {
-        widget.controller.forward();
-      }
+    if (widget.controller.isCompleted) {
+      widget.controller.reverse();
+    } else {
+      widget.controller.forward();
     }
   }
 
