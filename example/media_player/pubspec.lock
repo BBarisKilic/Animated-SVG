@@ -4,11 +4,9 @@ packages:
   animated_svg:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: "997e6fa82a44549796bf1f1988a4af1332762f73"
-      url: "https://github.com/BBarisKilic/Animated-SVG.git"
-    source: git
+      path: "../.."
+      relative: true
+    source: path
     version: "1.0.0"
   async:
     dependency: transitive
@@ -77,7 +75,7 @@ packages:
       name: flutter_lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "2.0.1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -96,7 +94,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.0"
   matcher:
     dependency: transitive
     description:
@@ -208,5 +206,5 @@ packages:
     source: hosted
     version: "5.3.1"
 sdks:
-  dart: ">=2.17.0-0 <3.0.0"
+  dart: ">=2.17.0-206.0.dev <3.0.0"
   flutter: ">=2.4.0-0.0.pre"

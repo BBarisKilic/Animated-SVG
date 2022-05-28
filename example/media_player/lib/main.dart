@@ -15,16 +15,14 @@ class ExampleApp extends StatelessWidget {
   const ExampleApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Media Player',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MediaPlayer(),
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'Media Player',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MediaPlayer(),
+      );
 }
 
 class MediaPlayer extends StatefulWidget {
@@ -36,123 +34,123 @@ class MediaPlayer extends StatefulWidget {
 
 class _MediaPlayerState extends State<MediaPlayer> {
   // Define an SvgController
-  late final SvgController _controller;
+  late final SvgController controller;
 
   @override
   void initState() {
-    // Initialize SvgController
-    _controller = AnimatedSvgController();
     super.initState();
+
+    // Initialize SvgController
+    controller = AnimatedSvgController();
   }
 
   @override
   void dispose() {
     // Dispose SvgController
-    _controller.dispose();
+    controller.dispose();
+
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(
-        title: const Text('Media Player'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SvgPicture.asset(
-            'assets/music.svg',
-            height: 240,
-            width: 240,
-          ),
-          const SizedBox(
-            height: 80,
-          ),
-          Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    height: 10,
-                    margin: const EdgeInsets.only(left: 40, right: 40),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white54,
-                    ),
-                  ),
-                  Container(
-                    height: 10,
-                    margin: const EdgeInsets.only(left: 40, right: 160),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      '02:37',
-                      style: TextStyle(
-                        color: Colors.white,
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.blue,
+        appBar: AppBar(
+          title: const Text('Media Player'),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SvgPicture.asset(
+              'assets/music.svg',
+              height: 240,
+              width: 240,
+            ),
+            const SizedBox(
+              height: 80,
+            ),
+            Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      height: 10,
+                      margin: const EdgeInsets.only(left: 40, right: 40),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white54,
                       ),
                     ),
-                    Text(
-                      '03:46',
-                      style: TextStyle(
+                    Container(
+                      height: 10,
+                      margin: const EdgeInsets.only(left: 40, right: 160),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 80,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/backward_5.svg',
-                height: 40,
-                width: 40,
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              // Call the AnimatedSvg widget anywhere in your widget tree.
-              AnimatedSvg(
-                controller: _controller,
-                size: 80,
-                children: [
-                  SvgPicture.asset('assets/play.svg'),
-                  SvgPicture.asset('assets/pause.svg'),
-                ],
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              SvgPicture.asset(
-                'assets/forward_5.svg',
-                height: 40,
-                width: 40,
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        '02:37',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        '03:46',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 80,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  'assets/backward_5.svg',
+                  height: 40,
+                  width: 40,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                // Call the AnimatedSvg widget anywhere in your widget tree.
+                AnimatedSvg(
+                  controller: controller,
+                  size: 80,
+                  children: [
+                    SvgPicture.asset('assets/play.svg'),
+                    SvgPicture.asset('assets/pause.svg'),
+                  ],
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                SvgPicture.asset(
+                  'assets/forward_5.svg',
+                  height: 40,
+                  width: 40,
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
 }
