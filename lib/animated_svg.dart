@@ -20,6 +20,8 @@ import 'constants/constants.dart';
 /// The package has been written solely in Dart Language.
 class AnimatedSvg extends StatefulWidget {
   /// Create [AnimatedSvg] widget.
+  ///
+  /// A widget for displaying and animating Scalable Vector Graphics 1.1 files.
   const AnimatedSvg({
     Key? key,
     required this.controller,
