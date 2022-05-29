@@ -5,7 +5,7 @@
 &nbsp;
 
 | ![animated_svg_gif_1](https://github.com/BBarisKilic/Animated-SVG/blob/master/screenshot/animated_svg_gif_1.gif?raw=true) | ![animated_svg_gif_2](https://github.com/BBarisKilic/Animated-SVG/blob/master/screenshot/animated_svg_gif_2.gif?raw=true)    
-| -------------------------------------------------------- | -------------------------------------------------------- |
+| :-: | :-: |
 
 &nbsp;
 
@@ -27,7 +27,7 @@ Let's take a look at how to implement `AnimatedSvg` to fastly create cool transi
 
 First, add the following line to `pubspec.yaml`:
 ```yaml
-animated_svg: ^1.0.0
+animated_svg: ^1.1.0
 ```
 
 Second, import `AnimatedSvg`:
