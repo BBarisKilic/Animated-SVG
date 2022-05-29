@@ -1,8 +1,9 @@
 ## 1.1.0
 
+* Refactored `AnimatedSvg` widget.
+* Added new comments.
 * Updated `flutter_svg` version to `1.1.0`
 * Updated example in `/example` folder.
-* Added new comments.
 * Updated  `analysis_options.yaml`
 * Updated `README.md`
 
