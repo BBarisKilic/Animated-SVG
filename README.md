@@ -33,7 +33,7 @@ animated_svg: ^1.1.0
 Second, import `AnimatedSvg`:
 ```dart
 import 'package:animated_svg/animated_svg.dart';
-import 'package:animated_svg/animated_svg_controller.dart';
+import 'package:animated_svg/animated_svgcontroller.dart';
 ```
 
 ## Usage
@@ -43,19 +43,19 @@ Basic usage example:
 `main.dart`
 ```dart
 // Define an SvgController
-late final SvgController _controller;
+late final SvgController controller;
 
 @override
 void initState() {
     // Initialize SvgController
-    _controller = AnimatedSvgController();
+    controller = AnimatedSvgController();
     super.initState();
 }
 
 @override
 void dispose() {
     // Dispose SvgController
-    _controller.dispose();
+    controller.dispose();
     super.dispose();
 }
 
@@ -63,7 +63,7 @@ void dispose() {
 Widget build(BuildContext context) {
     // Call the AnimatedSvg widget anywhere in your widget tree.
     return AnimatedSvg(
-        controller: _controller,
+        controller: controller,
         duration: const Duration(milliseconds: 600),
         onTap: () {},
         size: 80,
