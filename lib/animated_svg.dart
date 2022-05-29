@@ -17,7 +17,7 @@ import 'constants/constants.dart';
 /// Flutter package for displaying and animating Scalable Vector Graphics 1.1
 /// files.
 ///
-/// The package has been written solely in Dart Language.
+/// The package has been written solely in Dart language.
 class AnimatedSvg extends StatefulWidget {
   /// Create [AnimatedSvg] widget.
   ///

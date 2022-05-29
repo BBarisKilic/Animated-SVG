@@ -1,6 +1,6 @@
 # Animated SVG | Flutter Package
 
-[Flutter](https://flutter.dev/) package for displaying and animating Scalable Vector Graphics 1.1 files. The package has been written solely in [Dart Language](https://dart.dev/).
+[Flutter](https://flutter.dev/) package for displaying and animating Scalable Vector Graphics 1.1 files. The package has been written solely in [Dart](https://dart.dev/) language.
 
 &nbsp;
 
