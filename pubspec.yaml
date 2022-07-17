@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
   
   # An SVG rendering and widget library for Flutter.
-  flutter_svg: ^1.1.0
+  flutter_svg: ^1.1.1+1
 
 dev_dependencies:
   # Recommended set of lints for good coding practices.
