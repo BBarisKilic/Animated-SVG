@@ -12,16 +12,25 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'animated_svg_controller.dart';
 import 'constants/constants.dart';
 
+/// {@template animated_svg}
 /// [AnimatedSvg] Widget
 ///
 /// Flutter package for displaying and animating Scalable Vector Graphics 1.1
 /// files.
 ///
-/// The package has been written solely in Dart language.
+/// ```dart
+/// AnimatedSvg(
+///   controller: AnimatedSvgController(),
+///   size: 80,
+///   children: [
+///     SvgPicture.asset('assets/play.svg'),
+///     SvgPicture.asset('assets/pause.svg'),
+///   ],
+/// )
+/// ```
+/// {@endtemplate}
 class AnimatedSvg extends StatefulWidget {
-  /// Create [AnimatedSvg] widget.
-  ///
-  /// A widget for displaying and animating Scalable Vector Graphics 1.1 files.
+  /// {@macro animated_svg}
   const AnimatedSvg({
     Key? key,
     required this.controller,

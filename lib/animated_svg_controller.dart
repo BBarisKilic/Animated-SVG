@@ -45,10 +45,15 @@ abstract class SvgController {
   void dispose();
 }
 
+/// {@template animated_svg_controller}
 /// [AnimatedSvgController]
 ///
 /// A controller class that provides full control over the SVGs.
+/// {@endtemplate}
 class AnimatedSvgController implements SvgController {
+  /// {@macro animated_svg_controller}
+  AnimatedSvgController();
+
   // An animation controller
   AnimationController? _controller;
 
