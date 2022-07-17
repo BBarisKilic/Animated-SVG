@@ -4,7 +4,7 @@
 
 &nbsp;
 
-| ![animated_svg_gif_1](https://github.com/BBarisKilic/Animated-SVG/blob/master/screenshot/animated_svg_gif_1.gif?raw=true) | ![animated_svg_gif_2](https://github.com/BBarisKilic/Animated-SVG/blob/master/screenshot/animated_svg_gif_2.gif?raw=true)    
+| ![animated_svg_gif_1](https://github.com/BBarisKilic/Animated-SVG/blob/master/art/animated_svg_gif_1.gif?raw=true) | ![animated_svg_gif_2](https://github.com/BBarisKilic/Animated-SVG/blob/master/art/animated_svg_gif_2.gif?raw=true)    
 | :-: | :-: |
 
 &nbsp;
@@ -17,7 +17,7 @@ A powerful and fully customizable widget. With this package, you can easily anim
 
 &nbsp;
 
-<p align="center"><img src="https://github.com/BBarisKilic/Animated-SVG/blob/master/screenshot/animated_svg_1.png?raw=true" width="300">&nbsp; &nbsp;<img src="https://github.com/BBarisKilic/Animated-SVG/blob/master/screenshot/animated_svg_2.png?raw=true" width="300"></p>
+<p align="center"><img src="https://github.com/BBarisKilic/Animated-SVG/blob/master/art/animated_svg_1.png?raw=true" width="300">&nbsp; &nbsp;<img src="https://github.com/BBarisKilic/Animated-SVG/blob/master/art/animated_svg_2.png?raw=true" width="300"></p>
 
 &nbsp;
 
@@ -27,7 +27,7 @@ Let's take a look at how to implement `AnimatedSvg` to fastly create cool transi
 
 First, add the following line to `pubspec.yaml`:
 ```yaml
-animated_svg: ^1.1.0
+animated_svg: ^1.1.1
 ```
 
 Second, import `AnimatedSvg`:
