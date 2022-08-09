@@ -27,7 +27,7 @@ Let's take a look at how to implement `AnimatedSvg` to fastly create cool transi
 
 First, add the following line to `pubspec.yaml`:
 ```yaml
-animated_svg: ^1.1.1
+animated_svg: ^1.1.2
 ```
 
 Second, import `AnimatedSvg`:
