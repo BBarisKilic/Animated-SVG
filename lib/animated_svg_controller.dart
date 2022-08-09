@@ -57,29 +57,22 @@ class AnimatedSvgController implements SvgController {
   // An animation controller
   AnimationController? _controller;
 
-  /// A getter that provides the current [value] of the controller.
   @override
   double get value => _controller != null ? _controller!.value : 0.0;
 
-  /// A getter that returns true if the animation is running.
   @override
   bool get isAnimating => _controller != null
       ? _controller!.value > 0.0 && _controller!.value < 1.0
       : false;
 
-  /// A getter that returns true if the animation is dismissed.
   @override
   bool get isDismissed =>
       _controller != null ? _controller!.value == 0.0 : false;
 
-  /// A getter that returns true if the animation is completed.
   @override
   bool get isCompleted =>
       _controller != null ? _controller!.value == 1.0 : false;
 
-  /// A method to initialize AnimatedSvgController.
-  ///
-  /// This needs to be called before everything else.
   @override
   void init(AnimationController controller) {
     if (_controller != null) return;
@@ -87,7 +80,6 @@ class AnimatedSvgController implements SvgController {
     _controller = controller;
   }
 
-  /// A method to run animation in the [forward] direction.
   @override
   bool forward() {
     if (_controller != null) {
@@ -98,7 +90,6 @@ class AnimatedSvgController implements SvgController {
     }
   }
 
-  /// A method to run animation in the [reverse] direction.
   @override
   bool reverse() {
     if (_controller != null) {
@@ -109,7 +100,6 @@ class AnimatedSvgController implements SvgController {
     }
   }
 
-  /// A method to add a [listener] to the controller.
   @override
   void addListener(void Function() listener) {
     if (_controller == null) return;
@@ -117,7 +107,6 @@ class AnimatedSvgController implements SvgController {
     _controller!.addListener(listener);
   }
 
-  /// A method to remove a [listener] from the controller.
   @override
   void removeListener(void Function() listener) {
     if (_controller == null) return;
@@ -125,11 +114,6 @@ class AnimatedSvgController implements SvgController {
     _controller!.removeListener(listener);
   }
 
-  /// A method to [dispose] AnimatedSvgController.
-  ///
-  /// Do not forget to call this method when you are done with this controller!
-  /// A suggested place to call this method would be the "dispose" method of
-  /// the StatefulWidget.
   @override
   void dispose() {
     if (_controller != null) {
