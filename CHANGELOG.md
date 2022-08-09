@@ -1,3 +1,9 @@
+## 1.1.2
+
+* Removed unnecessary comments.
+* Updated `flutter_svg` version to `1.1.3`
+* Updated `README.md`
+
 ## 1.1.1
 
 * Added new comments.
