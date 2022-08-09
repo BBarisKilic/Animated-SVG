@@ -126,10 +126,10 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 
   @override
   Widget build(BuildContext context) {
-    final double controllerValueX = widget.controller.value;
-    final double controllerValueY = 1.0 - widget.controller.value;
-    final double angleX = math.pi / 180.0 * (180.0 * controllerValueX);
-    final double angleY = math.pi / 180.0 * (180.0 * controllerValueY);
+    final controllerValueX = widget.controller.value;
+    final controllerValueY = 1.0 - widget.controller.value;
+    final angleX = math.pi / 180.0 * (180.0 * controllerValueX);
+    final angleY = math.pi / 180.0 * (180.0 * controllerValueY);
 
     return GestureDetector(
       onTap: onTap,
