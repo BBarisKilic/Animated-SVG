@@ -111,7 +111,6 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 
   // Setting on tap tasks.
   void onTap() {
-    if (!mounted) return;
     if (!widget.isActive) return;
     if (widget.controller.isAnimating) return;
 
