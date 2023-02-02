@@ -33,7 +33,7 @@ animated_svg: ^1.1.2
 Second, import `AnimatedSvg`:
 ```dart
 import 'package:animated_svg/animated_svg.dart';
-import 'package:animated_svg/animated_svgcontroller.dart';
+import 'package:animated_svg/animated_svg_controller.dart';
 ```
 
 ## Usage
