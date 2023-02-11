@@ -82,22 +82,18 @@ class AnimatedSvgController implements SvgController {
 
   @override
   bool forward() {
-    if (_controller != null) {
-      _controller!.forward();
-      return true;
-    } else {
-      return false;
-    }
+    if (_controller == null) return false;
+
+    _controller!.forward();
+    return true;
   }
 
   @override
   bool reverse() {
-    if (_controller != null) {
-      _controller!.reverse();
-      return true;
-    } else {
-      return false;
-    }
+    if (_controller == null) return false;
+
+    _controller!.reverse();
+    return true;
   }
 
   @override
