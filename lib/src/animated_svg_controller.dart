@@ -54,24 +54,24 @@ class AnimatedSvgController implements SvgController {
   /// {@macro animated_svg_controller}
   AnimatedSvgController();
 
-  // An animation controller
+  /// An animation controller
   AnimationController? _controller;
 
   @override
   double get value => _controller != null ? _controller!.value : 0.0;
 
   @override
-  bool get isAnimating => _controller != null
-      ? _controller!.value > 0.0 && _controller!.value < 1.0
-      : false;
+  bool get isAnimating {
+    if (_controller == null) return false;
+
+    return _controller!.value > 0.0 && _controller!.value < 1.0;
+  }
 
   @override
-  bool get isDismissed =>
-      _controller != null ? _controller!.value == 0.0 : false;
+  bool get isDismissed => _controller?.value == 0.0;
 
   @override
-  bool get isCompleted =>
-      _controller != null ? _controller!.value == 1.0 : false;
+  bool get isCompleted => _controller?.value == 1.0;
 
   @override
   void init(AnimationController controller) {
@@ -82,22 +82,18 @@ class AnimatedSvgController implements SvgController {
 
   @override
   bool forward() {
-    if (_controller != null) {
-      _controller!.forward();
-      return true;
-    } else {
-      return false;
-    }
+    if (_controller == null) return false;
+
+    _controller!.forward();
+    return true;
   }
 
   @override
   bool reverse() {
-    if (_controller != null) {
-      _controller!.reverse();
-      return true;
-    } else {
-      return false;
-    }
+    if (_controller == null) return false;
+
+    _controller!.reverse();
+    return true;
   }
 
   @override
