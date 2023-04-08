@@ -1,4 +1,4 @@
-// Copyright 2022 The AnimatedSvg Author. All rights reserved.
+// Copyright 2023 The AnimatedSvg Author. All rights reserved.
 // Use of this source code is governed by a MIT-style license that
 // can be found in the LICENSE file.
 
@@ -135,7 +135,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     );
   }
 
-  /// Get values from [SvgController] and return list of [_SvgBox].
+  /// Get values from [SvgController] and return list of [SvgBox].
   List<Widget> drawSvgBoxes() {
     final children = <Widget>[];
     final controllerValueX = widget.controller.value;
