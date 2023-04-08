@@ -23,7 +23,7 @@ A powerful and fully customizable widget. With this package, you can easily anim
 
 ## Getting started
 
-Let's take a look at how to implement `AnimatedSvg` to fastly create cool transition animation between `SVGs`.
+Let's take a look at how to implement `AnimatedSvg` to quickly create cool transition animation between `SVGs`.
 
 First, add the following line to `pubspec.yaml`:
 ```yaml
