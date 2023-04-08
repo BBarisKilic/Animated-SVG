@@ -3,7 +3,6 @@
 // can be found in the LICENSE file.
 
 import 'package:animated_svg/animated_svg.dart';
-import 'package:animated_svg/animated_svg_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -38,10 +37,10 @@ class _MediaPlayerState extends State<MediaPlayer> {
 
   @override
   void initState() {
-    super.initState();
-
     // Initialize SvgController
     controller = AnimatedSvgController();
+
+    super.initState();
   }
 
   @override
