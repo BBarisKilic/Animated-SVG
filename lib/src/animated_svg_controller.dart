@@ -1,4 +1,4 @@
-// Copyright 2022 The AnimatedSvg Author. All rights reserved.
+// Copyright 2023 The AnimatedSvg Author. All rights reserved.
 // Use of this source code is governed by a MIT-style license that
 // can be found in the LICENSE file.
 
@@ -13,9 +13,6 @@ abstract class SvgController {
 
   /// A getter that returns true if the animation is running.
   bool get isAnimating;
-
-  /// A getter that returns true if the animation is dismissed.
-  bool get isDismissed;
 
   /// A getter that returns true if the animation is completed.
   bool get isCompleted;
@@ -66,9 +63,6 @@ class AnimatedSvgController implements SvgController {
 
     return _controller!.value > 0.0 && _controller!.value < 1.0;
   }
-
-  @override
-  bool get isDismissed => _controller?.value == 0.0;
 
   @override
   bool get isCompleted => _controller?.value == 1.0;

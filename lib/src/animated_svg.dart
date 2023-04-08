@@ -1,4 +1,4 @@
-// Copyright 2022 The AnimatedSvg Author. All rights reserved.
+// Copyright 2023 The AnimatedSvg Author. All rights reserved.
 // Use of this source code is governed by a MIT-style license that
 // can be found in the LICENSE file.
 
@@ -135,7 +135,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     );
   }
 
-  /// Get values from [SvgController] and return list of [_SvgBox].
+  /// Get values from [SvgController] and return list of [SvgBox].
   List<Widget> drawSvgBoxes() {
     final children = <Widget>[];
     final controllerValueX = widget.controller.value;
@@ -145,7 +145,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 
     if (controllerValueX == 1.0 && controllerValueY == 0.0) {
       children.add(
-        _SvgBox(
+        SvgBox(
           svgPicture: widget.children[1],
           angle: widget.clockwise ? -angleY : angleY,
           opacity: controllerValueX,
@@ -154,7 +154,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
       );
     } else {
       children.add(
-        _SvgBox(
+        SvgBox(
           svgPicture: widget.children[0],
           angle: widget.clockwise ? angleX : -angleX,
           opacity: controllerValueY,
@@ -165,7 +165,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 
     if (controllerValueX == 0.0 && controllerValueY == 1.0) {
       children.add(
-        _SvgBox(
+        SvgBox(
           svgPicture: widget.children[0],
           angle: widget.clockwise ? angleX : -angleX,
           opacity: controllerValueY,
@@ -174,7 +174,7 @@ class _AnimatedSvgState extends State<AnimatedSvg>
       );
     } else {
       children.add(
-        _SvgBox(
+        SvgBox(
           svgPicture: widget.children[1],
           angle: widget.clockwise ? -angleY : angleY,
           opacity: controllerValueX,
@@ -188,23 +188,25 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 }
 
 /// {@template svg_box}
-/// [_SvgBox] Widget
+/// [SvgBox] Widget
 ///
 /// StatelessWidget to create single SvgBox with required
 /// angle, opacity and size.
 /// {@endtemplate}
-class _SvgBox extends StatelessWidget {
+@visibleForTesting
+class SvgBox extends StatelessWidget {
   /// {@macro svg_box}
-  const _SvgBox({
+  const SvgBox({
     required this.svgPicture,
     required this.angle,
     required this.opacity,
     required this.size,
+    super.key,
   });
 
   /// A variable to determine the [svgPicture] of the SvgBox.
   ///
-  /// This [SvgPicture] will be converted into [_SvgBox] with
+  /// This [SvgPicture] will be converted into [SvgBox] with
   /// the expected angle, opacity and size.
   final SvgPicture svgPicture;
 
