@@ -26,7 +26,7 @@ dev_dependencies:
     sdk: flutter
 
   # A Dart mock library.
-  mocktail: ^0.3.0
+  mocktail: ">=0.3.0 <2.0.0"
 
   # Lint rules for Dart and Flutter.
   very_good_analysis: ^4.0.0+1
