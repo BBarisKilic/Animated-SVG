@@ -34,7 +34,7 @@ Let's take a look at how to implement `AnimatedSvg` to quickly create cool trans
 
 First, add the following line to `pubspec.yaml`:
 ```yaml
-animated_svg: ^2.0.0
+animated_svg: ^2.1.0
 ```
 
 Second, import `AnimatedSvg`:
