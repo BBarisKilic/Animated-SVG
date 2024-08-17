@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 /// [SvgController]
 ///
 /// A controller class that provides full control over the SVGs.
-abstract class SvgController {
+abstract interface class SvgController {
   /// A getter that provides the current [value] of the controller.
   double get value;
 
@@ -47,7 +47,7 @@ abstract class SvgController {
 ///
 /// A controller class that provides full control over the SVGs.
 /// {@endtemplate}
-class AnimatedSvgController implements SvgController {
+final class AnimatedSvgController implements SvgController {
   /// {@macro animated_svg_controller}
   AnimatedSvgController();
 
@@ -106,9 +106,9 @@ class AnimatedSvgController implements SvgController {
 
   @override
   void dispose() {
-    if (_controller != null) {
-      _controller!.dispose();
-      _controller = null;
-    }
+    if (_controller == null) return;
+
+    _controller!.dispose();
+    _controller = null;
   }
 }

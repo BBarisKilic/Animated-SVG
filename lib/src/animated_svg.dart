@@ -85,13 +85,11 @@ class _AnimatedSvgState extends State<AnimatedSvg>
     // Initializing the controller and adding listener.
     widget.controller
       ..init(AnimationController(vsync: this, duration: widget.duration))
-      ..addListener(listener);
+      ..addListener(_listener);
   }
 
-  /// [listener] method for [SvgController]
-  ///
-  /// This will help to update the state.
-  void listener() {
+  /// Updates the state of the widget.
+  void _listener() {
     if (!mounted) return;
 
     setState(() {});
@@ -99,19 +97,16 @@ class _AnimatedSvgState extends State<AnimatedSvg>
 
   @override
   void dispose() {
-    // Removing listener and dispose
+    // Removes the listener and disposes the controller.
     widget.controller
-      ..removeListener(listener)
+      ..removeListener(_listener)
       ..dispose();
 
     super.dispose();
   }
 
-  /// [onTap] Tasks
-  ///
-  /// [onTap] parameter of [AnimatedSvg] will also be executed,
-  /// if it is not null.
-  void onTap() {
+  /// Handles the tap action.
+  void _onTap() {
     if (!widget.isActive) return;
     if (widget.controller.isAnimating) return;
 
@@ -127,16 +122,16 @@ class _AnimatedSvgState extends State<AnimatedSvg>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: _onTap,
       child: Stack(
         alignment: Alignment.center,
-        children: drawSvgBoxes(),
+        children: _svgBoxes(),
       ),
     );
   }
 
-  /// Get values from [SvgController] and return list of [SvgBox].
-  List<Widget> drawSvgBoxes() {
+  /// Gets values from [SvgController] and returns list of [SvgBox].
+  List<Widget> _svgBoxes() {
     final children = <Widget>[];
     final controllerValueX = widget.controller.value;
     final controllerValueY = 1.0 - widget.controller.value;
