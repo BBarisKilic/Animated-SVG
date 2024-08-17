@@ -4,7 +4,7 @@
 * build: upgrade SDK constraints ([#23](https://github.com/BBarisKilic/Animated-SVG/pull/23))
 * refactor: update the code with new Dart 3 features ([#23](https://github.com/BBarisKilic/Animated-SVG/pull/23))
 * test: add tests for validating copyright headers ([#23](https://github.com/BBarisKilic/Animated-SVG/pull/23))
-* build(deps): bump mocktail from 0.3.0 to 1.0.0 ([#21](https://github.com/BBarisKilic/Animated-SVG/pull/21)
+* build(deps): bump mocktail from 0.3.0 to 1.0.0 ([#21](https://github.com/BBarisKilic/Animated-SVG/pull/21))
 
 ## 2.0.0
 
