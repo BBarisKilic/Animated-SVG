@@ -11,7 +11,7 @@ void main() {
 }
 
 class ExampleApp extends StatelessWidget {
-  const ExampleApp({Key? key}) : super(key: key);
+  const ExampleApp({super.key});
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -25,7 +25,7 @@ class ExampleApp extends StatelessWidget {
 }
 
 class MediaPlayer extends StatefulWidget {
-  const MediaPlayer({Key? key}) : super(key: key);
+  const MediaPlayer({super.key});
 
   @override
   State<MediaPlayer> createState() => _MediaPlayerState();
@@ -94,11 +94,11 @@ class _MediaPlayerState extends State<MediaPlayer> {
                 const SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    children: [
                       Text(
                         '02:37',
                         style: TextStyle(
