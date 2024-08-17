@@ -1,3 +1,11 @@
+## 2.1.0
+
+* build(deps): bump dependencies ([#23](https://github.com/BBarisKilic/Animated-SVG/pull/23))
+* build: upgrade SDK constraints ([#23](https://github.com/BBarisKilic/Animated-SVG/pull/23))
+* refactor: update the code with new Dart 3 features ([#23](https://github.com/BBarisKilic/Animated-SVG/pull/23))
+* test: add tests for validating copyright headers ([#23](https://github.com/BBarisKilic/Animated-SVG/pull/23))
+* build(deps): bump mocktail from 0.3.0 to 1.0.0 ([#21](https://github.com/BBarisKilic/Animated-SVG/pull/21)
+
 ## 2.0.0
 
 * **BREAKING** feat: update `flutter_svg` version to `2.0.4` ([#4](https://github.com/BBarisKilic/Animated-SVG/issues/4))
