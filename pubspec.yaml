@@ -29,6 +29,6 @@ dev_dependencies:
   mocktail: ^1.0.4
 
   # Lint rules for Dart and Flutter.
-  very_good_analysis: ^6.0.0
+  very_good_analysis: ">=6.0.0 <11.0.0"
 
 flutter: null
